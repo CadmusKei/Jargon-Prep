@@ -6,14 +6,20 @@ A repository to track our progress and store benchmark screenshots as we prepare
 
 ## Repository Structure
 
-- **-Guides/**
-  - Detailed step by step guides for current distro/software versions/
+- **-Tut-1/**
+  - members-screenshots/
+  
+- **-Tut-2/**
+  - members-screenshots/
 
 - **BTOP From Source/**
   - members-screenshots/
 
 - **Fastfetch/**
   - members-screenshots/
+    
+- **Guides/**
+  - Detailed step by step guides for current distro/software versions/
   
 - **HPL-Optimisation/**
   - members-screenshots/
@@ -21,7 +27,7 @@ A repository to track our progress and store benchmark screenshots as we prepare
 - **Passwordless-SSH/**
   - members-screenshots/
 
-- **Installing-Configureing-HPL/**
+- **HPL-Install/**
   - members-screenshots/
   
 ### Team Members
