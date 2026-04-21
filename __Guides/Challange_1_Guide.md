@@ -40,6 +40,16 @@ sudo hostnamectl set-hostname compute2
     sudo nmcli con up "Wired connection 1"
  ```
 
+*Or, if adapter 1 set to interla*
+
+ **On Head**
+ ```Bash
+    sudo nmcli con mod enp0s3 connection.interface-name enp0s3
+    sudo nmcli con mod enp0s3 ipv4.addresses 10.0.0.1/24
+    sudo nmcli con mod enp0s3 ipv4.method manual
+    sudo nmcli con up enp0s3
+ ```
+
 **On compute**
 ```Bash
 sudo nmcli con mod enp0s3 ipv4.addresses 10.0.0.2/24
@@ -150,15 +160,21 @@ ssh compute2
 - Key management note: private key stays on laptop only, public key distributed to nodes
 
 ---
+# Enable passwordless proxyJump
+`tail -1 ~/.ssh/authorized_keys > /tmp/laptop_key.pub`
+```Bash
+cat /tmp/laptop_key.pub | ssh hpcuser@compute1 'cat >> ~/.ssh/authorized_keys'
+cat /tmp/laptop_key.pub | ssh hpcuser@compute2 'cat >> ~/.ssh/authorized_keys'
+```
 
 # Basline hardening
-
+**On all nodes**
 `sudo nano /etc/ssh/sshd_config`
 
 ```Bash
 PermitRootLogin no
 PasswordAuthentication no
-PermitEmptyPasswords no
+PermitEmptyPcasswords no
 IgnoreRhosts yes 
 ```
 
