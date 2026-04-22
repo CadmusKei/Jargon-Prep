@@ -13,6 +13,7 @@
 4. Create hpcuser on all nodes 
 5. Generate SSH keys on headnode and distribute to compute nodes 
 6. Configure ProxyJump on laptop (Host)
+7. Remove the NAT adapters on compute nodes. 
 7. Apply baseline hardening on all nodes
 
 ## Key Commands
