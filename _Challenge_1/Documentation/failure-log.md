@@ -1,6 +1,6 @@
 # Challange-1 errors:
 
-** enp0s8 does not have ipv4 so `sudo nmcli con mod enp0s8 ipv4.addresses 10.0.0.1/24` ** -> This lead us to a different solution and caused us to learn the following:
+**enp0s8 does not have ipv4 so `sudo nmcli con mod enp0s8 ipv4.addresses 10.0.0.1/24`** -> This lead us to a different solution and caused us to learn the following:
  -This taught us about the differences between connections and interfaces.
  -Difference between NIC and an interface?
  -Can virtual machines have multiple NICs?
@@ -9,7 +9,7 @@
  -What does enp0s3/enp0s8 actionally mean? (en = ethernet)
  -Why did the headnode face this issue and not the compute nodes?
  -DIfference between /etc/hosts and /etc/hostname
- ** solution **
+ **solution**
  ```Bash
     sudo nmcli con mod "Wired connection 1" connection.interface-name enp0s8
     sudo nmcli con mod "Wired connection 1" ipv4.addresses 10.0.0.1/24
@@ -19,14 +19,14 @@
 
 ---
  
- ** 100% packet loss upon ping headNode -c 3` **
+ **100% packet loss upon ping headNode -c 3`**
 
- ** solution **
+ **solution**
   Ensure all internal network adaptesr are set to the same name and all machines are on :[
 
 ---
   
-  ** Proxyjump still asks for password**
+  **Proxyjump still asks for password**
 
 **Solution**
 ```Bash
@@ -55,11 +55,12 @@ cat /tmp/laptop_key.pub | ssh hpcuser@compute1 'cat >> ~/.ssh/authorized_keys'
 cat /tmp/laptop_key.pub | ssh hpcuser@compute2 'cat >> ~/.ssh/authorized_keys'
 ```
 
-why wouldnt we want the personal user to be doing the sshing, since it may need to edit configs, install things and run sudo in the computes. why set it up for hpcuser
+THis challange caused us to ask:
+Why wouldn't we want the personal user to be doing the sshing, since it may need to edit configs install things and run sudo in the computes?
 
 ---
 
-** systemctl --failed #Errors**
+**systemctl --failed #Errors**
 [kei@headnode ~]$ systemctl --failed
   UNIT           LOAD   ACTIVE SUB    DESCRIPTION                           
 ● mcelog.service loaded failed failed Machine Check Exception Logging Daemon
